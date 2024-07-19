@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/tickets/{id}', [TicketController::class, 'index']);
